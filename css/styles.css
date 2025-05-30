@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #87CEEB;
+  --secondary-color: #E0F7FA;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: var(--primary-color);
+  --accent-color: #00BCD4;
+  --font-size: var(--font-size);
+  --font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
+  --font-family-serif: 'Georgia', serif;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;
+  --text-color: #ECEFF1;
+  --link-color: #81D4FA;
+  --secondary-color: #011526;
+  
+}
+
+body {
+  margin: 0;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, var(--secondary-color), var(--bg-color));
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+/* Alto contraste */
+body.high-contrast,
+body.cv-page.high-contrast .container {
+  background: #000 !important;
+  --text-color: #ffffff;
+  color: #FFF !important;
+}
+
+body.high-contrast a,
+body.cv-page.high-contrast .container a {
+  color: #0FF !important;
+  background-color: #000 !important;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Resaltar links */
+body.highlight-links a,
+body.cv-page.highlight-links .container a {
+  background-color: #FFFF00AA;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 0 0.1rem;
+  transition: background-color 0.3s;
+}
+
+body.highlight-links a:hover,
+body.highlight-links a:focus,
+body.cv-page.highlight-links .container a:hover,
+body.cv-page.highlight-links .container a:focus {
+  background-color: #FFFF00FF;
+  outline: 2px solid #FFD700;
+  outline-offset: 2px;
+}
+
+.no-link-style a {
+  color: inherit !important;
+  text-decoration: none !important;
+  pointer-events: auto; /* Los enlaces siguen siendo clicables */
+  cursor: auto !important;
+}
+
+.no-link-style a:hover,
+.no-link-style a:focus {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+
+/* Filtros para daltonismo */
+body.filter-protanopia,
+body.cv-page.filter-protanopia {
+  filter: url('#protanopia');
+}
+
+body.filter-deuteranopia,
+body.cv-page.filter-deuteranopia {
+  filter: url('#deuteranopia');
+}
+
+body.filter-tritanopia,
+body.cv-page.filter-tritanopia {
+  filter: url('#tritanopia');
+}
+
+body.filter-achromatopsia,
+body.cv-page.filter-achromatopsia {
+  filter: grayscale(100%);
+}
+
+header {
+  background: var(--primary-color);
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1200;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Botón toggler accesibilidad */
+#toggle-accessibility {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  z-index: 1300;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+#toggle-accessibility:hover {
+  background: var(--accent-color);
+}
+
+/* Panel accesibilidad */
+#accessibility-panel {
+  position: fixed;
+  top: 3.5rem;
+  right: 1rem;
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  z-index: 1250;
+  max-width: 320px;
+  max-height: 300px;
+  overflow-y: auto;
+  transition: opacity 0.3s ease;
+}
+
+#accessibility-panel.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#accessibility-panel button {
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.3s, transform 0.2s;
+  flex-grow: 1;
+  text-align: center;
+  user-select: none;
+}
+
+#accessibility-panel button:hover {
+  background: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* --- Imagenes en los apartados --- */
+section img {
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+  font-size: var(--font-size);
+  min-height: calc(100vh - 140px); /* Hace que el contenido ocupe al menos la pantalla completa */
+}
+
+main h1 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+main h2 {
+  margin-top: 2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+main h3 {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+main p {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  color: var(--text-color);
+}
+
+footer {
+  background: transparent;       /* Fondo transparente */
+  color: rgba(255, 255, 255, 0.4); /* Texto muy tenue */
+  box-shadow: none;              /* Elimina sombra */
+  font-weight: 400;
+  padding: 1rem 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;          /* No interfiere con clicks */
+  user-select: none;             /* No se puede seleccionar */
+  z-index: 10;
+  transition: color 0.3s;
+}
+
+footer:hover {
+  color: rgba(255, 255, 255, 0.7); /* Se aclara al pasar mouse */
+  pointer-events: auto;
+  user-select: auto;
+}
+
+/* Formulario */
+form p {
+  margin-bottom: 1rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+form button[type="submit"] {
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background: var(--accent-color);
+}
+
+.aviso {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+body.cv-page {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5faff;
+  color: #222;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+body.cv-page .container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+body.cv-page .sidebar {
+  background-color: #87CEEB;
+  color: white;
+  padding: 2rem 1.5rem;
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.cv-page .profile-pic img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-bottom: 1rem;
+}
+
+body.cv-page .sidebar h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+body.cv-page .job-title {
+  font-weight: 400;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+body.cv-page .contact-info,
+body.cv-page .skills {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+body.cv-page .contact-info h2,
+body.cv-page .skills h2 {
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid white;
+  padding-bottom: 0.25rem;
+}
+
+body.cv-page .contact-info p,
+body.cv-page .skills ul {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+body.cv-page .skills ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+body.cv-page .skills ul li {
+  margin-bottom: 0.5rem;
+}
+
+body.cv-page .skills ul li::before {
+  content: "•";
+  color: rgb(215, 221, 234);
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+body.cv-page .main-content {
+  padding: 2rem 3rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+body.cv-page .section {
+  margin-bottom: 2.5rem;
+}
+
+body.cv-page .section h2 {
+  font-size: 1.8rem;
+  border-bottom: 3px solid #87CEEB;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  color: #007ACC;
+}
+
+body.cv-page .job,
+body.cv-page .education {
+  margin-bottom: 1.5rem;
+}
+
+body.cv-page .job h3,
+body.cv-page .education h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #004a7c;
+}
+
+body.cv-page .date {
+  display: block;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+
+body.cv-page .section p,
+body.cv-page .section ul {
+  font-size: 1rem;
+  color: #333;
+}
+
+body.cv-page .section ul {
+  padding-left: 1.2rem;
+}
+
+body.cv-page .section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body.cv-page .container {
+    flex-direction: column;
+    margin: 1rem;
+  }
+  body.cv-page .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+  }
+  body.cv-page .profile-pic img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  body.cv-page .sidebar h1 {
+    font-size: 1.4rem;
+    margin: auto 0;
+  }
+  body.cv-page .job-title {
+    display: none;
+  }
+  body.cv-page .main-content {
+    padding: 1rem;
+  }
+}
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio - Software y ¿Pruebas?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/accessibility.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_accessibility" />
+  <style>
+    main {
+      max-width: 900px;
+      margin: 3rem auto 5rem;
+      background-color: ECEFF1;
+      color: var(--text-color);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      font-family: var(--font-family);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .intro h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .intro p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .intro img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-top: 1.5rem;
+      user-select: none;
+    }
+
+    /* Fade-in animation for intro */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 1.5rem 1.5rem;
+        margin: 2rem 1rem 4rem;
+      }
+      .intro h1 {
+        font-size: (--font-size);
+      }
+      .intro p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Filtros SVG para daltonismo -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
+    <filter id="protanopia">
+      <feColorMatrix type="matrix" values="
+        0.567 0.433 0     0 0
+        0.558 0.442 0     0 0
+        0     0.242 0.758 0 0
+        0     0     0     1 0" />
+    </filter>
+    <filter id="deuteranopia">
+      <feColorMatrix type="matrix" values="
+        0.625 0.375 0     0 0
+        0.7   0.3   0     0 0
+        0     0.3   0.7   0 0
+        0     0     0     1 0" />
+    </filter>
+    <filter id="tritanopia">
+      <feColorMatrix type="matrix" values="
+        0.95  0.05  0     0 0
+        0     0.433 0.567 0 0
+        0     0.475 0.525 0 0
+        0     0     0     1 0" />
+    </filter>
+  </svg>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="tema.html">Pruebas de Software</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="portafolio.html">Portafolio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-accessibility" aria-label="Mostrar/Ocultar opciones de accesibilidad">
+      <span class="material-symbols-outlined">settings_accessibility</span>
+    </button>
+    <div id="accessibility-panel" aria-live="polite" aria-atomic="true"></div>
+  </header>
+
+  <main>
+    <section class="intro fade-in" role="main" tabindex="0">
+      <h1>Bienvenido a "Software y ¿Pruebas?"</h1>
+      <p>
+        Este sitio es una introducción completa a los conceptos fundamentales y mejores prácticas
+        en el área de pruebas dentro de la Ingeniería de Software. Navega por las secciones para
+        aprender más.
+      </p>
+      <p>
+        Aprovecha las opciones de accesibilidad en la esquina superior derecha para personalizar
+        la experiencia de lectura a tus necesidades.
+      </p>
+      <img src="imagenes/index2.svg" alt="Ilustración representativa de pruebas de software" />
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SCIJ</p>
+  </footer>
+</body>
+</html>

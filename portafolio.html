@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/accessibility.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_accessibility" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
+    <filter id="protanopia">
+      <feColorMatrix type="matrix" values="
+        0.567 0.433 0     0 0
+        0.558 0.442 0     0 0
+        0     0.242 0.758 0 0
+        0     0     0     1 0" />
+    </filter>
+    <filter id="deuteranopia">
+      <feColorMatrix type="matrix" values="
+        0.625 0.375 0     0 0
+        0.7   0.3   0     0 0
+        0     0.3   0.7   0 0
+        0     0     0     1 0" />
+    </filter>
+    <filter id="tritanopia">
+      <feColorMatrix type="matrix" values="
+        0.95  0.05  0     0 0
+        0     0.433 0.567 0 0
+        0     0.475 0.525 0 0
+        0     0     0     1 0" />
+    </filter>
+  </svg>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tema.html">Pruebas de Software</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="portafolio.html" class="active">Portafolio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-accessibility" aria-label="Mostrar/Ocultar opciones de accesibilidad">
+      <span class="material-symbols-outlined">settings_accessibility</span>
+    </button>
+    <div id="accessibility-panel" aria-live="polite" aria-atomic="true"></div>
+  </header>
+  <main>
+    <h1>Portafolio de Proyectos</h1>
+    <article>
+      <h2>Formulario Accesible</h2>
+      <p>
+        Desarrollo de un formulario de contacto sin base de datos, con validación en el frontend y protección contra spam.
+      </p>
+    </article>
+    <article>
+      <h2>Automatización de Pruebas</h2>
+      <p>
+        Implementación de scripts de Selenium para pruebas de regresión automatizadas que reducen el tiempo de testing manual.
+      </p>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2025 SCIJ</p>
+  </footer>
+</body>
+</html>

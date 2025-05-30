@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pruebas de Software</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/accessibility.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_accessibility" />
+  <style>
+    main {
+      max-width: 960px;
+      margin: 3rem auto 5rem;
+      background-color: ECEFF1;
+      color: var(--text-color);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      font-family: var(--font-family);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    main h1 {
+      font-size: calc(var(--font-size) * 2.4);
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: calc(var(--font-size) * 1.8);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    section p, section ol, section ul {
+      font-size: var(--font-size);
+      line-height: 1.6;
+      max-width: 900px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Estilo para lista ordenada */
+    ol {
+      padding-left: 1.4rem;
+    }
+
+    ol li {
+      margin-bottom: 0.8rem;
+    }
+
+    /* Diseño en columnas para artículos dentro de "Tipos de Pruebas" */
+    section:nth-of-type(2) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    section:nth-of-type(2) article {
+      background-color: #679bb0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      transition: background-color 0.3s ease;
+    }
+
+    section:nth-of-type(2) article h3 {
+      font-size: calc(var(--font-size) * 1.3);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    section:nth-of-type(2) article p {
+      margin: 0;
+      color: var(--text-color);
+    }
+
+    /* Imágenes */
+    main img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      display: block;
+      margin: 1.5rem auto 0;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 1.5rem 1.5rem;
+        margin: 2rem 1rem 4rem;
+      }
+      main h1 {
+        font-size: calc(var(--font-size) * 1.8);
+      }
+      section:nth-of-type(2) {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Filtros SVG para daltonismo -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
+    <filter id="protanopia">
+      <feColorMatrix type="matrix" values="
+        0.567 0.433 0     0 0
+        0.558 0.442 0     0 0
+        0     0.242 0.758 0 0
+        0     0     0     1 0" />
+    </filter>
+    <filter id="deuteranopia">
+      <feColorMatrix type="matrix" values="
+        0.625 0.375 0     0 0
+        0.7   0.3   0     0 0
+        0     0.3   0.7   0 0
+        0     0     0     1 0" />
+    </filter>
+    <filter id="tritanopia">
+      <feColorMatrix type="matrix" values="
+        0.95  0.05  0     0 0
+        0     0.433 0.567 0 0
+        0     0.475 0.525 0 0
+        0     0     0     1 0" />
+    </filter>
+  </svg>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tema.html" class="active">Pruebas de Software</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="portafolio.html">Portafolio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-accessibility" aria-label="Mostrar/Ocultar opciones de accesibilidad">
+      <span class="material-symbols-outlined">settings_accessibility</span>
+    </button>
+    <div id="accessibility-panel" aria-live="polite" aria-atomic="true"></div>
+  </header>
+
+  <main role="main" tabindex="0">
+    <h1>Pruebas de Software</h1>
+
+    <section>
+      <h2>Definición</h2>
+      <p>
+        Las pruebas de software son un proceso fundamental en el ciclo de vida del desarrollo que garantiza
+        la calidad y funcionalidad adecuada de un sistema antes de su liberación al usuario final.
+      </p>
+      <img src="imagenes/tema.jpg" alt="Ilustración representativa de pruebas de software" />
+    </section>
+
+    <section>
+      <h2>Tipos de Pruebas</h2>
+      <article>
+        <h3>Pruebas Unitarias</h3>
+        <p>
+          Evalúan componentes individuales o funciones para verificar que se comporten correctamente de forma aislada.
+        </p>
+      </article>
+      <article>
+        <h3>Pruebas de Integración</h3>
+        <p>
+          Combinan y verifican la interacción entre varios módulos o componentes del sistema.
+        </p>
+      </article>
+      <article>
+        <h3>Pruebas Funcionales</h3>
+        <p>
+          Se enfocan en validar que el sistema cumpla con los requerimientos funcionales especificados.
+        </p>
+      </article>
+      <article>
+        <h3>Pruebas de Desempeño</h3>
+        <p>
+          Miden la velocidad, capacidad y estabilidad bajo cargas específicas para garantizar un rendimiento adecuado.
+        </p>
+      </article>
+      <article>
+        <h3>Pruebas de Seguridad</h3>
+        <p>
+          Identifican vulnerabilidades que puedan comprometer la integridad, confidencialidad o disponibilidad del sistema.
+        </p>
+      </article>
+      <img src="imagenes/SauceLabs-1-e1605812638907.webp" alt="Ilustración representativa de pruebas de software" />
+    </section>
+
+    <section>
+      <h2>Buenas Prácticas</h2>
+      <ol>
+        <li><strong>Automatización:</strong> Uso de herramientas para ejecutar pruebas repetitivas y minimizar errores humanos.</li>
+        <li><strong>Revisión exhaustiva:</strong> Análisis constante de casos de prueba para asegurar cobertura y relevancia.</li>
+        <li><strong>Gestión de defectos:</strong> Registro, seguimiento y priorización de incidencias detectadas durante las pruebas.</li>
+      </ol>
+      <img src="imagenes/OIP.jpg" alt="Ilustración representativa de pruebas de software" />
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SCIJ</p>
+  </footer>
+</body>
+</html>
