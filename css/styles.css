@@ -7,17 +7,17 @@
   --text-color: #333333;
   --link-color: var(--primary-color);
   --accent-color: #00BCD4;
-  --font-size: var(--font-size);
+  --font-size: 1rem; /* valor base para que JS lo modifique */
   --font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
   --font-family-serif: 'Georgia', serif;
 }
 
+/* Tema oscuro */
 [data-theme="dark"] {
   --bg-color: #000000;
   --text-color: #ECEFF1;
   --link-color: #81D4FA;
   --secondary-color: #011526;
-  
 }
 
 body {
@@ -28,6 +28,7 @@ body {
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
 }
+
 /* Alto contraste */
 body.high-contrast,
 body.cv-page.high-contrast .container {
@@ -63,6 +64,7 @@ body.cv-page.highlight-links .container a:focus {
   outline-offset: 2px;
 }
 
+/* Ocultar resaltado pero mantener enlaces clicables */
 .no-link-style a {
   color: inherit !important;
   text-decoration: none !important;
@@ -76,7 +78,6 @@ body.cv-page.highlight-links .container a:focus {
   text-decoration: none !important;
   outline: none !important;
 }
-
 
 /* Filtros para daltonismo */
 body.filter-protanopia,
@@ -99,11 +100,15 @@ body.cv-page.filter-achromatopsia {
   filter: grayscale(100%);
 }
 
+/* HEADER GENERAL */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: var(--primary-color);
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: relative;
   z-index: 1200;
 }
 
@@ -130,7 +135,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Botón toggler accesibilidad */
+/* Botón accesibilidad */
 #toggle-accessibility {
   position: fixed;
   top: 1rem;
@@ -198,69 +203,120 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* --- Imagenes en los apartados --- */
-section img {
-  max-width: 400px;
-  height: auto;
-  display: block;
-  margin: 20px 0;
-  border-radius: 8px;
-}
+/* --- ESTILOS GENERALES PARA MAIN --- */
 
 main {
   max-width: 900px;
-  margin: 3rem auto;
+  margin: 3rem auto 5rem;
   padding: 0 1rem;
   line-height: 1.6;
   font-size: var(--font-size);
-  min-height: calc(100vh - 140px); /* Hace que el contenido ocupe al menos la pantalla completa */
+  min-height: calc(100vh - 140px);
+  padding-top: 60px; /* para compensar header fijo */
+  font-family: var(--font-family);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main h1 {
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--primary-color);
+  font-size: calc(var(--font-size) * 2.4);
+  text-align: center;
 }
 
 main h2 {
   margin-top: 2rem;
   color: var(--primary-color);
   font-weight: 600;
+  font-size: calc(var(--font-size) * 1.8);
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 main h3 {
   margin-top: 1rem;
   font-weight: 600;
+  font-size: calc(var(--font-size) * 1.3);
 }
 
-main p {
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
+main p,
+main ol,
+main ul {
+  font-size: var(--font-size);
+  color: var(--text-color);
+  max-width: 900px;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+ol {
+  padding-left: 1.4rem;
+}
+
+ol li,
+ul li {
+  margin-bottom: 0.8rem;
+}
+
+/* Estilos específicos para sección "Tipos de Pruebas" con grid en artículos */
+section:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+section:nth-of-type(2) article {
+  background-color: #679bb0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  transition: background-color 0.3s ease;
   color: var(--text-color);
 }
 
+section:nth-of-type(2) article h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+/* Imágenes en secciones */
+section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  display: block;
+  margin: 1.5rem auto 0;
+  user-select: none;
+}
+
+/* Footer */
 footer {
-  background: transparent;       /* Fondo transparente */
-  color: rgba(255, 255, 255, 0.4); /* Texto muy tenue */
-  box-shadow: none;              /* Elimina sombra */
+  background: transparent;       
+  color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
   font-weight: 400;
   padding: 1rem 1rem;
   position: fixed;
   width: 100%;
   bottom: 0;
-  pointer-events: none;          /* No interfiere con clicks */
-  user-select: none;             /* No se puede seleccionar */
+  pointer-events: none;
+  user-select: none;
   z-index: 10;
   transition: color 0.3s;
+  text-align: center;
 }
 
 footer:hover {
-  color: rgba(255, 255, 255, 0.7); /* Se aclara al pasar mouse */
+  color: rgba(255, 255, 255, 0.7);
   pointer-events: auto;
   user-select: auto;
 }
 
-/* Formulario */
+/* Formularios */
 form p {
   margin-bottom: 1rem;
 }
@@ -300,11 +356,15 @@ form button[type="submit"]:hover {
   background: var(--accent-color);
 }
 
+/* Aviso pequeño */
 .aviso {
   font-size: 0.8rem;
   color: #555;
+  margin-top: 1rem;
+  text-align: center;
 }
 
+/* Estilos para página CV */
 body.cv-page {
   font-family: 'Montserrat', sans-serif;
   background: #f5faff;
@@ -446,7 +506,7 @@ body.cv-page .section ul li {
   margin-bottom: 0.5rem;
 }
 
-/* Responsive */
+/* Responsive CV */
 @media (max-width: 768px) {
   body.cv-page .container {
     flex-direction: column;
@@ -476,3 +536,25 @@ body.cv-page .section ul li {
   }
 }
 
+/* Responsive general */
+@media (max-width: 768px) {
+  main {
+    padding: 1.5rem 1.5rem;
+    margin: 2rem 1rem 4rem;
+  }
+  section:nth-of-type(2) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive contacto */
+@media (max-width: 480px) {
+  main {
+    max-width: 600px;
+    margin: 2rem 1rem 4rem;
+    padding: 1rem;
+  }
+  form button[type="submit"] {
+    width: 100%;
+  }
+}

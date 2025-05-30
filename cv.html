@@ -7,9 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script defer src="js/accessibility.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_accessibility" /> 
-</head>
-<body class="cv-page">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_accessibility" />
   <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
     <filter id="protanopia">
       <feColorMatrix type="matrix" values="
@@ -33,6 +31,8 @@
         0     0     0     1 0" />
     </filter>
   </svg>
+</head>
+<body class="cv-page">
   <header>
     <nav>
       <ul>
@@ -48,61 +48,65 @@
     </button>
     <div id="accessibility-panel" aria-live="polite" aria-atomic="true"></div>
   </header>
+
   <div class="container">
-  <aside class="sidebar">
-    <div class="profile-pic">
-      <img src="imagenes/descarga (1).jpeg" alt="Foto de Perfil" />
-    </div>
-    <h1>Jetzamani Catalan</h1>
-    <p class="job-title">Ingeniero de Software</p>
-
-    <div class="contact-info">
-      <h2>Contacto</h2>
-      <p>Email: <a href="correo electronico">isosa0@ucol.mx</a></p>
-      <p>Teléfono: +52 314 218 7890</p>
-      <p>Manzanillo, Colima, México.</p>
-      <p><a href="https://linkedin.com/in/usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-    </div>
-
-    <div class="skills">
-      <h2>Habilidades</h2>
-      <ul>
-        <li>Pruebas de Software</li>
-        <li>Automatización de Tests</li>
-        <li>JavaScript / HTML / CSS</li>
-        <li>Metodologías Ágiles</li>
-        <li>Git / GitHub</li>
-      </ul>
-    </div>
-  </aside>
-
-  <main class="main-content">
-    <section class="section">
-      <h2>Resumen Profesional</h2>
-      <p>
-        Ingeniero de Software con más de 3 años de experiencia en desarrollo y pruebas
-        automatizadas. Apasionada por la calidad y mejora continua en procesos de software.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Educación</h2>
-      <div class="education">
-        <h3>Licenciatura en Ingeniería de Software</h3>
-        <span class="date">2022 - Presente</span>
-        <p>Universidad De Colima</p>
+    <aside class="sidebar">
+      <div class="profile-pic">
+        <img src="imagenes/descarga (1).jpeg" alt="Foto de Perfil" />
       </div>
-    </section>
+      <h1>Jetzamani Catalan</h1>
+      <p class="job-title">Ingeniero de Software</p>
 
-    <section class="section">
-      <h2>Certificaciones</h2>
-      <ul>
-        <li>ISTQB Foundation Level</li>
-        <li>Scrum Master Certified</li>
-      </ul>
-    </section>
-  </main>
-</div>
+      <div class="contact-info">
+        <h2>Contacto</h2>
+        <p>Email: <a href="mailto:isosa0@ucol.mx">isosa0@ucol.mx</a></p>
+        <p>Teléfono: +52 314 218 7890</p>
+        <p>Manzanillo, Colima, México.</p>
+        <p><a href="https://linkedin.com/in/usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      </div>
 
+      <div class="skills">
+        <h2>Habilidades</h2>
+        <ul>
+          <li>Pruebas de Software</li>
+          <li>Automatización de Tests</li>
+          <li>JavaScript / HTML / CSS</li>
+          <li>Metodologías Ágiles</li>
+          <li>Git / GitHub</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content" role="main" tabindex="0">
+      <section class="section">
+        <h2>Resumen Profesional</h2>
+        <p>
+          Ingeniero de Software con más de 3 años de experiencia en desarrollo y pruebas
+          automatizadas. Apasionada por la calidad y mejora continua en procesos de software.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Educación</h2>
+        <div class="education">
+          <h3>Licenciatura en Ingeniería de Software</h3>
+          <span class="date">2022 - Presente</span>
+          <p>Universidad De Colima</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Certificaciones</h2>
+        <ul>
+          <li>ISTQB Foundation Level</li>
+          <li>Scrum Master Certified</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 SCIJ</p>
+  </footer>
 </body>
 </html>
