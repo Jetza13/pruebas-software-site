@@ -28,7 +28,12 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   }
 
   // Si todo está correcto, enviamos el formulario a través de EmailJS
-  emailjs.sendForm('default_service', 'template_2i6h03n', this)
+  emailjs.sendForm('default_service', 'template_2i6h03n', {
+    name: name,
+    email: email,
+    subject: subject,
+    message: message,
+  })
     .then(() => {
       alert('Mensaje enviado correctamente. ¡Gracias por contactarnos!');
       this.reset();  // Limpiar el formulario
