@@ -22,7 +22,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   }
 
   // Si todo ok, enviar por EmailJS
-  emailjs.sendForm('service_647hnei', 'template_r3g8mqb', this) // Aquí se ponen los IDs correctos
+  emailjs.sendForm('service_647hnei', 'template_r3g8mqb', this) 
     .then(() => {
       alert('Mensaje enviado correctamente. ¡Gracias por contactarnos!');
       this.reset();
