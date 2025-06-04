@@ -7,17 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script defer src="js/accessibility.js"></script>
-
-  <!-- Vincular el archivo JS de EmailJS -->
-    <script type="text/javascript">
-    (function(){
-      emailjs.init({
-        publickey: "vtD81N_BpQLTOdc-0",
-      })
-    })
-  </script>
-  <script src="js/contacto.js" defer></script>
- 
 </head>
 <body>
   <header>
@@ -38,9 +27,9 @@
 
   <main role="main" tabindex="0">
     <h1>Contacto</h1>
-    <form id="contact-form" name="contacto" method="POST">
+    <form name="contacto" method="POST" data-netlify="true" action="https://hooks.zapier.com/hooks/catch/xxxxxx/xxxxxx/">
 
-      <!-- Campo oculto para Netlify (solo si decides quitar data-netlify) -->
+      <!-- Netlify Form Handling -->
       <input type="hidden" name="form-name" value="contacto" />
 
       <!-- Nombre -->
@@ -75,7 +64,7 @@
 
       <!-- Honeypot (para evitar bots) -->
       <p style="display:none;">
-        <label for="honeypot">Deja este campo vacío e:</label>
+        <label for="honeypot">Deja este campo vacío:</label>
         <input type="text" id="honeypot" name="honeypot" autocomplete="off" />
       </p>
 
