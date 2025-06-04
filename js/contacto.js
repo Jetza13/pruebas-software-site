@@ -1,7 +1,5 @@
 // Asegúrate de inicializar EmailJS con tu User ID
-(function() {
-  emailjs.init('vtD81N_BpQLTOdc-0'); // Reemplaza con tu User ID de EmailJS
-})();
+
 
 // Agregar el evento al formulario de contacto
 document.getElementById('contact-form').addEventListener('submit', function(event) {
