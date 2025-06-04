@@ -7,14 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script defer src="js/accessibility.js"></script>
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init('vtD81N_BpQLTOdc-0'); 
-    })();
-  </script>
 </head>
 <body>
   <header>
@@ -35,9 +27,11 @@
 
   <main role="main" tabindex="0">
     <h1>Contacto</h1>
-    <form id="contact-form" name="contacto" netlify-honeypot="honeypot" novalidate>
+    <form name="contacto" method="POST" data-netlify="true" action="/gracias.html">
+
+      <!-- Indicar a Netlify que es un formulario -->
       <input type="hidden" name="form-name" value="contacto" />
-      
+
       <p>
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" required pattern="^[A-Za-zÑñÁÉÍÓÚáéíóú\s]{2,}$" />
@@ -56,11 +50,11 @@
       </p>
       <p>
         <label for="captcha">¿3 + 2 = ?</label>
-        <input type="text" id="captcha" name="captcha" required />
+        <input type="text" id="captcha" name="captcha" required pattern="^5$" />
       </p>
       <p style="display:none;">
         <label for="honeypot">Deja este campo vacío:</label>
-        <input type="text" id="honeypot" name="honeypot" autocomplete="off" />
+        <input type="text" id="honeypot" name="honeypot" />
       </p>
       <p>
         <button type="submit">Enviar</button>
@@ -72,7 +66,5 @@
   <footer>
     <p>&copy; 2025 SCIJ</p>
   </footer>
-
-  <script src="js/contacto.js"></script>
 </body>
 </html>
